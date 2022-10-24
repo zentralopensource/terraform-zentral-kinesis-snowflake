@@ -122,7 +122,11 @@ resource "aws_kinesis_firehose_delivery_stream" "zentral-events-s3" {
       input_format_configuration {
         deserializer {
           hive_json_ser_de { // this ser/der allows custom timestamp formats
-            timestamp_formats = ["yyyy-MM-dd'T'HH:mm:ss.SSSSSS", "yyyy-MM-dd'T'HH:mm:ss.SSS"]
+            timestamp_formats = [
+              "yyyy-MM-dd'T'HH:mm:ss.SSSSSS",
+              "yyyy-MM-dd'T'HH:mm:ss.SSS",
+              "yyyy-MM-dd'T'HH:mm:ss"
+            ]
           }
         }
       }
